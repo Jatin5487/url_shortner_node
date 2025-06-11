@@ -10,7 +10,7 @@ const Urls= {
 
 //Middleware
 app.use(express.urlencoded())
-
+const PORT = process.env.PORT || 7080;
 
 app.get("/", (req, res)=>{
     res.sendFile(import.meta.dirname + "/index.html"   )
@@ -45,4 +45,4 @@ app.get("/:shortUrl", (req, res)=>{
     res.redirect(longUrl);
 })
 
-app.listen(7080, () =>console.log("port number 7080 is run"));
+app.listen(PORT, () =>console.log(`server is up and running on port${PORT}`));
