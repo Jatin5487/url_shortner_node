@@ -30,12 +30,12 @@ app.post("/shorten", (req, res)=>{
     const urlData = JSON.parse(fileData.toString()) 
     urlData[shortUrl] = req.body.longUrl
     fs.writeFileSync("urls.json", JSON.stringify(urlData, null, 2));
-    // console.log(urlData);
+    
     
     
     res.json({
         success: true,
-        message: `${process.env.BASE_PATH}/${shortUrl}`
+        message: `http://localhost:7080/${shortUrl}`
     })
     
 })
